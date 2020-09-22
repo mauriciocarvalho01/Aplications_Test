@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Transforma palavra</title>
+
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+        }
+
+        .transforma {
+            width: 1000px;
+            height: 200px;
+            background: #696969;
+            top: 20%;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+        }
+
+        .row {
+            position: relative;
+            margin: 0 auto;
+            top: 10%;
+        }
+
+        label {
+            position: relative;
+            margin-top: 5px;
+        }
+
+        div i {
+            font-size: 50px;
+        }
+
+        .material-icons {
+            font-size: 50px;
+            position: relative;
+            top: 30px;
+            color: #00BFFF;
+        }
+
+        .mostra {
+            background: #000;
+            height: 50px;
+            box-shadow: 2px 5px 10px #c0c0c0;
+            color: #fff;
+            text-align: center;
+            padding: 50px 0px 50px 0px;
+        }
+
+        div .label {
+            color: #696969;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="transforma">
+        <div class="row">
+            <div class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons">send</i>
+                        <input type="text" id="autocomplete-input" class="autocomplete">
+                        <label for="autocomplete-input" class="label">Escreva algo</label>
+                        <a onmouseover="transforma()" class="waves-effect waves-light btn-large">Enviar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mostra" class="mostra"></div>
+    </div>
+
+
+
+
+
+    <script>
+
+        function transforma() {
+
+
+            let frase = document.getElementById("autocomplete-input").value;
+
+
+            let mostrar = document.getElementById('mostra');
+
+            var words = frase.toLowerCase().split(" ");
+            for (var a = 0; a < words.length; a++) {
+                var w = words[a];
+                words[a] = w[0].toUpperCase() + w.slice(1);
+            }
+            return mostrar.innerHTML = words.join(" ");
+            console.log(words.join(" "));
+        }
+
+
+    </script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
